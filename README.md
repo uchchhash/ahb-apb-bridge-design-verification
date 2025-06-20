@@ -93,67 +93,72 @@ Each FIFO uses:
 
 ---
 
-## ▶️ How to Run Simulation
 
-1. Enter the project directory:
-   ```bash
-   cd ahb-apb-bridge-design-verification
+## 🚀 Launch Simulation
 
-
-Launch simulation:
-
-bash
-Copy
-Edit
+```bash
 ./run.sh
-Outputs:
+```
 
-transcript, vsim.wlf, waveform files (.svwf)
+**Outputs:**
+- `transcript`, `vsim.wlf`, waveform files (`.svwf`)
+- Coverage and result logs
 
-Coverage and result logs
+---
 
-🧪 Test Plan Summary
-Feature Tested	Methodology
-AHB to APB Write Path	Directed + Random Tests
-APB to AHB Read Path	Directed + Random Tests
-FIFO Status Flags	Assertion Checks
-Clock Domain Crossing	Simulation via async FIFO
-Reset Behavior	Base and corner tests
+## 🧪 Test Plan Summary
 
-📁 Directory Structure
-bash
-Copy
-Edit
+| Feature Tested             | Methodology                  |
+|---------------------------|------------------------------|
+| AHB to APB Write Path     | Directed + Random Tests      |
+| APB to AHB Read Path      | Directed + Random Tests      |
+| FIFO Status Flags         | Assertion Checks             |
+| Clock Domain Crossing     | Simulation via async FIFO    |
+| Reset Behavior            | Base and corner tests        |
+
+---
+
+## 📁 Directory Structure
+
+```bash
 ahb-apb-bridge-design-verification/
 ├── rtl/
-│   ├── *.sv / *.v         # RTL modules
+│   └── *.sv / *.v                  # RTL modules
 ├── tb/
-│   ├── interfaces/        # Interface definitions
-│   ├── environment/       # env, config, scoreboard
-│   ├── agents/            # AHB/APB agent components
-│   ├── sequences/         # Transaction sequences
-│   ├── tests/             # Testcases
-│   └── tb_top.sv          # Top testbench
+│   ├── interfaces/                # Interface definitions
+│   ├── environment/              # env, config, scoreboard
+│   ├── agents/                   # AHB/APB agent components
+│   ├── sequences/                # Transaction sequences
+│   ├── tests/                    # Testcases
+│   └── tb_top.sv                 # Top testbench
 ├── sim/
-│   ├── run.sh             # Simulation script
-│   ├── filelist.f         # File list for VCS/ModelSim
-│   └── *.svwf, *.cmd      # Waveform configs
+│   ├── run.sh                    # Simulation script
+│   ├── filelist.f                # File list for VCS/ModelSim
+│   └── *.svwf, *.cmd             # Waveform configs
 ├── docs/
-│   └── testplan.xlsx      # Optional test documentation
+│   └── testplan.xlsx             # Optional test documentation
 └── README.md
-🔭 Future Work
-Add SystemVerilog Assertions (SVA) for FIFO and protocol checks
+```
 
-Extend testbench with coverage collection
+---
 
-Integrate error injection and corner-case tests
+## 🔭 Future Work
 
-(Optional) Redesign RTL for synthesis and FPGA prototyping
+- Add **SystemVerilog Assertions (SVA)** for FIFO and protocol checks
+- Extend testbench with **coverage collection**
+- Integrate **error injection** and **corner-case tests**
+- *(Optional)* Redesign RTL for **synthesis** and **FPGA prototyping**
 
-📜 License
-This project is licensed under the MIT License.
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.  
 Use and adapt it freely for academic or non-commercial purposes.
 
-🙌 Acknowledgments
-Developed as part of functional design and verification learning.
-Inspired by standard AMBA AHB/APB protocol references and UVM methodology.
+---
+
+## 🙌 Acknowledgments
+
+Developed as part of **functional design and verification learning**.  
+Inspired by standard **AMBA AHB/APB protocol** references and **UVM methodology**.
