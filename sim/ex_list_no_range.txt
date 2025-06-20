@@ -1,0 +1,294 @@
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~  AHB_interface HADDR  ~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-ere instance tb_top\.ahb_intf\.*HADDR\[31\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[30\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[29\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[28\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[27\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[26\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[25\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[24\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[23\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[22\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[21\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[20\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[19\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[18\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[17\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[16\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[15\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[14\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[13\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[12\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[11\].*
+-ere instance tb_top\.ahb_intf\.*HADDR\[10\].*
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~  AHB_interface HSIZE  ~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-ere instance tb_top\.ahb_intf\.*HSIZE.*
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~  APB_interface PADDR  ~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~  paddr  ~~~~
+-ere instance tb_top\.apb_intf\.*PADDR\[31\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[30\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[29\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[28\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[27\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[26\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[25\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[24\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[23\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[22\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[21\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[20\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[19\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[18\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[17\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[16\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[15\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[14\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[13\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[12\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[11\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[10\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[9\].*
+-ere instance tb_top\.apb_intf\.*PADDR\[8\].*
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~  Bridge top  ~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~  haddr  ~~~~
+-ere instance tb_top\.DUT\.*haddr\[31\].*
+-ere instance tb_top\.DUT\.*haddr\[30\].*
+-ere instance tb_top\.DUT\.*haddr\[29\].*
+-ere instance tb_top\.DUT\.*haddr\[28\].*
+-ere instance tb_top\.DUT\.*haddr\[27\].*
+-ere instance tb_top\.DUT\.*haddr\[26\].*
+-ere instance tb_top\.DUT\.*haddr\[25\].*
+-ere instance tb_top\.DUT\.*haddr\[24\].*
+-ere instance tb_top\.DUT\.*haddr\[23\].*
+-ere instance tb_top\.DUT\.*haddr\[22\].*
+-ere instance tb_top\.DUT\.*haddr\[21\].*
+-ere instance tb_top\.DUT\.*haddr\[20\].*
+-ere instance tb_top\.DUT\.*haddr\[19\].*
+-ere instance tb_top\.DUT\.*haddr\[18\].*
+-ere instance tb_top\.DUT\.*haddr\[17\].*
+-ere instance tb_top\.DUT\.*haddr\[16\].*
+-ere instance tb_top\.DUT\.*haddr\[15\].*
+-ere instance tb_top\.DUT\.*haddr\[14\].*
+-ere instance tb_top\.DUT\.*haddr\[13\].*
+-ere instance tb_top\.DUT\.*haddr\[12\].*
+-ere instance tb_top\.DUT\.*haddr\[11\].*
+-ere instance tb_top\.DUT\.*haddr\[10\].*
+
+# ~~~~  hsize  ~~~~
+-ere instance tb_top\.DUT\.*hsize.*
+
+# ~~~~  paddr  ~~~~
+-ere instance tb_top\.DUT\.*paddr\[31\].*
+-ere instance tb_top\.DUT\.*paddr\[30\].*
+-ere instance tb_top\.DUT\.*paddr\[29\].*
+-ere instance tb_top\.DUT\.*paddr\[28\].*
+-ere instance tb_top\.DUT\.*paddr\[27\].*
+-ere instance tb_top\.DUT\.*paddr\[26\].*
+-ere instance tb_top\.DUT\.*paddr\[25\].*
+-ere instance tb_top\.DUT\.*paddr\[24\].*
+-ere instance tb_top\.DUT\.*paddr\[23\].*
+-ere instance tb_top\.DUT\.*paddr\[22\].*
+-ere instance tb_top\.DUT\.*paddr\[21\].*
+-ere instance tb_top\.DUT\.*paddr\[20\].*
+-ere instance tb_top\.DUT\.*paddr\[19\].*
+-ere instance tb_top\.DUT\.*paddr\[18\].*
+-ere instance tb_top\.DUT\.*paddr\[17\].*
+-ere instance tb_top\.DUT\.*paddr\[16\].*
+-ere instance tb_top\.DUT\.*paddr\[15\].*
+-ere instance tb_top\.DUT\.*paddr\[14\].*
+-ere instance tb_top\.DUT\.*paddr\[13\].*
+-ere instance tb_top\.DUT\.*paddr\[12\].*
+-ere instance tb_top\.DUT\.*paddr\[11\].*
+-ere instance tb_top\.DUT\.*paddr\[10\].*
+-ere instance tb_top\.DUT\.*paddr\[9\].*
+-ere instance tb_top\.DUT\.*paddr\[8\].*
+
+
+# ~~~~~~~~  top.ctrl_pipe  ~~~~~~~~
+# ~~~~  haddr  ~~~~
+-ere instance tb_top\.DUT\.*ctrl_pipe\[31\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[30\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[29\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[28\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[27\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[26\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[25\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[24\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[23\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[22\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[21\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[20\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[19\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[18\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[17\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[16\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[15\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[14\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[13\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[12\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[11\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[10\].*
+
+# ~~~~  hsize  ~~~~
+-ere instance tb_top\.DUT\.*ctrl_pipe\[32\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[33\].*
+-ere instance tb_top\.DUT\.*ctrl_pipe\[34\].*
+
+# ~~~~  htrans  ~~~~
+-ere instance tb_top\.DUT\.*ctrl_pipe\[39\].*
+
+
+# ~~~~~~~~  top.ctrl_read  ~~~~~~~~
+# ~~~~  haddr  ~~~~
+-ere instance tb_top\.DUT\.*ctrl_read\[31\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[30\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[29\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[28\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[27\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[26\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[25\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[24\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[23\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[22\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[21\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[20\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[19\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[18\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[17\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[16\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[15\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[14\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[13\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[12\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[11\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[10\].*
+
+# ~~~~  hsize  ~~~~
+-ere instance tb_top\.DUT\.*ctrl_read\[32\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[33\].*
+-ere instance tb_top\.DUT\.*ctrl_read\[34\].*
+
+# ~~~~  htrans  ~~~~
+-ere instance tb_top\.DUT\.*ctrl_read\[39\].*
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~  APB_slave paddr  ~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~  paddr  ~~~~
+-ere instance tb_top\.apb\.*paddr\[31\].*
+-ere instance tb_top\.apb\.*paddr\[30\].*
+-ere instance tb_top\.apb\.*paddr\[29\].*
+-ere instance tb_top\.apb\.*paddr\[28\].*
+-ere instance tb_top\.apb\.*paddr\[27\].*
+-ere instance tb_top\.apb\.*paddr\[26\].*
+-ere instance tb_top\.apb\.*paddr\[25\].*
+-ere instance tb_top\.apb\.*paddr\[24\].*
+-ere instance tb_top\.apb\.*paddr\[23\].*
+-ere instance tb_top\.apb\.*paddr\[22\].*
+-ere instance tb_top\.apb\.*paddr\[21\].*
+-ere instance tb_top\.apb\.*paddr\[20\].*
+-ere instance tb_top\.apb\.*paddr\[19\].*
+-ere instance tb_top\.apb\.*paddr\[18\].*
+-ere instance tb_top\.apb\.*paddr\[17\].*
+-ere instance tb_top\.apb\.*paddr\[16\].*
+-ere instance tb_top\.apb\.*paddr\[15\].*
+-ere instance tb_top\.apb\.*paddr\[14\].*
+-ere instance tb_top\.apb\.*paddr\[13\].*
+-ere instance tb_top\.apb\.*paddr\[12\].*
+-ere instance tb_top\.apb\.*paddr\[11\].*
+-ere instance tb_top\.apb\.*paddr\[10\].*
+-ere instance tb_top\.apb\.*paddr\[9\].*
+-ere instance tb_top\.apb\.*paddr\[8\].*
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~  APB_fsm paddr  ~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~  paddr  ~~~~
+-ere instance tb_top\.DUT\.apb\.*paddr\[31\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[30\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[29\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[28\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[27\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[26\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[25\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[24\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[23\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[22\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[21\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[20\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[19\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[18\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[17\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[16\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[15\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[14\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[13\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[12\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[11\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[10\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[9\].*
+-ere instance tb_top\.DUT\.apb\.*paddr\[8\].*
+
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~  AHB_fsm ctrl_pipe  ~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# ~~~~  haddr  ~~~~
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[31\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[30\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[29\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[28\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[27\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[26\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[25\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[24\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[23\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[22\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[21\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[20\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[19\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[18\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[17\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[16\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[15\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[14\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[13\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[12\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[11\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[10\].*
+
+# ~~~~  hsize  ~~~~
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[32\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[33\].*
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[34\].*
+
+# ~~~~  htrans  ~~~~
+-ere instance tb_top\.DUT\.ahb\.*ctrl_pipe\[39\].*

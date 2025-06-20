@@ -1,0 +1,2 @@
+test_name_random_seed=$1
+load_test test_name_random_seed

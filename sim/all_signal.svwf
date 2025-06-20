@@ -1,0 +1,813 @@
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+mmap new -reuse -name {New map} -radix %x -contents {{%s= -label Finished}}
+
+array unset createdGroup
+array set createdGroup {}
+#
+# Groups
+#
+if {[catch {group get -using [list apb_write_state contributors]}]} {
+set createdGroup([list apb_write_state contributors]) 1
+catch {group new -name {apb_write_state contributors} -overlay 0}
+}
+if {[info exists createdGroup([list apb_write_state contributors])]} {
+group using {apb_write_state contributors}
+group set -overlay 0
+group set -comment {simulator::tb_top.apb_intf.apb_write_state contributors}
+group clear 0 end
+group insert \
+    [subst  {[format {tb_top.apb_intf.RST_N}]} ] \
+    [subst  {[format {tb_top.apb_intf.PSEL}]} ] \
+    [subst  {[format {tb_top.apb_intf.PENABLE}]} ] \
+    [subst  {[format {tb_top.apb_intf.PWRITE}]} ] \
+    [subst  {[format {tb_top.apb_intf.PREADY}]} ]
+}
+
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.AHB_FIFO_DEPTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.APB_FIFO_DEPTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.DATA_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_flop[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_128}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.AHB_FIFO_DEPTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BURST_Addr_valid}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUSY}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_8}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_16}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_32}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_64}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.raddr[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ahb_data_read[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.rdata[40:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.DATA_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.FIFO_DEPTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.fifo_sp[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.mem[0:15]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.meta_r2w[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.meta_w2r[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.r_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.raddr[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.rclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.reset_n}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.rptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.rq2_wptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.w_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.waddr[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.wclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.wdata[40:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.wptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_fifo.wq2_rptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.rdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.DATA_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.FIFO_DEPTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.fifo_sp[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.mem[0:1]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.meta_r2w[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.meta_w2r[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.r_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.raddr[0:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.rclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.reset_n}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.rptr[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.rq2_wptr[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.w_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.waddr[0:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.wclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.wdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.wptr[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_fifo.wq2_rptr[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.DATA_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ENABLE_r_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ENABLE_w_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.IDLE_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.PRDATA_VALID_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.SETUP_r_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.SETUP_w_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ahb_data_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ahb_data_ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.apb_data_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.apb_data_wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ctrl_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ctrl_read[40:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.ctrl_ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.nstate[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.paddr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.penable}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.prdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.prdata_flop[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pready}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.psel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pstate[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pwdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pwrite}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.resetn}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.DATA_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.FIFO_DEPTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.fifo_sp[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.mem[0:15]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.meta_r2w[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.meta_w2r[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.r_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.rclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.rdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.reset_n}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.rptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.rq2_wptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.w_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.waddr[3:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.wclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.wdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.wptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_fifo.wq2_rptr[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_256}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_512}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BUS_1024}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.BYTE}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.DATA_WIDTH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ERROR}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.HALF_WORD}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.HIGH}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.I4_R}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.I4_W}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.I8_R}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.I8_W}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.I16_R}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.I16_W}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.IDLE}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.IDLE_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.IDLE_W}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.INCR}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.INCR4}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.INCR8}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.INCR16}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.Initial_burst_count[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.LOW}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.NONSEQ}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.NSEQ}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.OKAY}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.READ}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.READ_valid_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.READ_wait_valid_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.RETRY}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SEQ}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SINGLE}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SIN_R}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SIN_W}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SIZE_2_WORD}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SIZE_4_WORD}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SIZE_8_WORD}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SIZE_16_WORD}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SIZE_32_WORD}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.SPLIT}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.Single_Addr_valid}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.TRX_r_ad_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.TRX_w_ad_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.TRX_w_data_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.TRX_wait_r_ad_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.TRX_wait_w_ad_STATE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.WORD}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.WRAP4}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.WRAP8}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.WRAP16}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.WRITE}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.a_d_w}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ahb_data_flop[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ahb_data_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ahb_data_sp[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ahb_data_wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.apb_data_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.apb_data_read[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.apb_data_ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.burst_count[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ctrl_flop[40:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ctrl_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ctrl_sp[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.ctrl_wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.haddr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hburst[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hrdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hready_o}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hresp}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hsel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hsize[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.htrans[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hwdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.hwrite}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.nseq_wait}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.nstate[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.pstate[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb.resetn}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_read[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_sp[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HSIZE[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.RST_N}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.PADDR[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.PENABLE}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.PRDATA[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.PREADY}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.PSEL}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.PWDATA[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.PWRITE}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb_intf.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.memSize}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.R_ENABLE[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.SETUP[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.W_ENABLE[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.addrWidth}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.apb_st[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.dataWidth}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.mem[0:255]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.paddr[7:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.pclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.penable}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.prdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.pready}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.psel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.pwdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.pwrite}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.apb.rst_n}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HADDR[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HBURST[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HRDATA[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HREADY}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HRESETN}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HRESP}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HSEL}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HTRANS[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HWDATA[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.HWRITE}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.ahb_intf.clk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_data_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_data_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_data_read[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_data_ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_data_sp[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb_data_wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_flop[40:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_full}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_read[40:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_ren}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_sp[4:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ctrl_wen}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.haddr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hburst[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hrdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hready_o}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hresp}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hsel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hsize[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.htrans[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hwdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hwrite}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.paddr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.pclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.penable}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.prdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.prdata_flop[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.pready}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.psel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.pwdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.pwrite}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.resetn}]}
+	} ]]
+
+waveform xview limits 0 21254ps

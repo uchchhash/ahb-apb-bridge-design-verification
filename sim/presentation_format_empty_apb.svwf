@@ -1,0 +1,99 @@
+
+#
+# Mnemonic Maps
+#
+mmap new -reuse -name {Boolean as Logic} -radix %b -contents {{%c=FALSE -edgepriority 1 -shape low}
+{%c=TRUE -edgepriority 1 -shape high}}
+mmap new -reuse -name {Example Map} -radix %x -contents {{%b=11???? -bgcolor orange -label REG:%x -linecolor yellow -shape bus}
+{%x=1F -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=2C -bgcolor red -label ERROR -linecolor white -shape EVENT}
+{%x=* -label %x -linecolor gray -shape bus}}
+mmap new -reuse -name {New map} -radix %x -contents {{%s= -label Finished}}
+
+array unset createdGroup
+array set createdGroup {}
+#
+# Groups
+#
+if {[catch {group get -using [list apb_write_state contributors]}]} {
+set createdGroup([list apb_write_state contributors]) 1
+catch {group new -name {apb_write_state contributors} -overlay 0}
+}
+if {[info exists createdGroup([list apb_write_state contributors])]} {
+group using {apb_write_state contributors}
+group set -overlay 0
+group set -comment {simulator::tb_top.apb_intf.apb_write_state contributors}
+group clear 0 end
+group insert \
+    [subst  {[format {tb_top.apb_intf.RST_N}]} ] \
+    [subst  {[format {tb_top.apb_intf.PSEL}]} ] \
+    [subst  {[format {tb_top.apb_intf.PENABLE}]} ] \
+    [subst  {[format {tb_top.apb_intf.PWRITE}]} ] \
+    [subst  {[format {tb_top.apb_intf.PREADY}]} ]
+}
+
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.resetn}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hsel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hwrite}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.htrans[1:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hburst[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hsize[2:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.haddr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hwdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hready_o}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.hrdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.ahb_data_empty}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.resetn}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pclk}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.psel}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.paddr[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pwrite}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.penable}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pwdata[31:0]}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.pready}]}
+	} ]]
+set id [waveform add -signals [subst  {
+	{[format {tb_top.DUT.apb.prdata[31:0]}]}
+	} ]]
+
+waveform xview limits 5000ps 160000ps

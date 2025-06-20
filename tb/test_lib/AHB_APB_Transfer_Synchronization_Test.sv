@@ -1,0 +1,65 @@
+// AHB_APB_Transfer_Synchronization_Test
+
+class AHB_APB_Transfer_Synchronization_Test extends ahb_base_test;
+
+  //factory registration
+  `uvm_component_utils( AHB_APB_Transfer_Synchronization_Test )
+  
+  //  ===============  Function New  ==============
+
+    function new (string name = "AHB_APB_Transfer_Synchronization_Test", uvm_component parent = null);
+
+        super.new(name, parent);
+        `uvm_info(get_full_name(),"Inside Constructor Function",UVM_DEBUG)
+
+    endfunction
+    
+//  ===============  Build Phase  ===============
+  
+    virtual function void build_phase (uvm_phase phase);
+
+        super.build_phase(phase);
+        `uvm_info(get_full_name(),"Inside Build Phase",UVM_DEBUG)
+
+    endfunction : build_phase
+    
+//  ==============  Connect Phase  ==============
+  
+    virtual function void connect_phase (uvm_phase phase);
+
+        super.connect_phase(phase);
+        `uvm_info(get_full_name(),"Inside Connect Phase",UVM_DEBUG)
+      
+    endfunction : connect_phase
+
+//  ================  Run Phase  ================
+  
+    virtual task run_phase(uvm_phase phase);
+
+        super.run_phase(phase);
+        `uvm_info(get_full_name(),"Inside Run Phase",UVM_DEBUG)
+      
+      
+//  ===================================================
+//  =====  AHB_APB_Transfer_Synchronization_Test  =====
+//  ===================================================
+      
+
+        phase.raise_objection(this);
+
+            reset();
+            
+            
+            /* write */ write( SINGLE, BUS_32, 32'h04 ); // Burst Operation, data_size, Start_ADDR, End_ADDR, WDATA, Random_Flag
+            
+            /* read  */ read ( SINGLE, BUS_32, 32'h04 ); // Burst Operation, data_size, Start_ADDR, End_ADDR
+
+            
+            ahb_apb_transfer_sync_wait_task();
+
+        phase.drop_objection(this);
+
+    endtask
+  
+endclass : AHB_APB_Transfer_Synchronization_Test
+
